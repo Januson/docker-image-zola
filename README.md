@@ -1,6 +1,6 @@
-# docker-zola
+# docker-image-zola
 
-Provides a Docker image [Zola](https://www.getzola.org/), the Rust-based
+Docker image providing [Zola](https://www.getzola.org/), the Rust-based
 static site generator. This image is using Zola version **0.15.3**, but it 
 will be updated with later releases.
 

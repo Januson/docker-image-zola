@@ -15,8 +15,6 @@ RUN test -n "${ZOLA_VERSION}" \
 FROM scratch
 COPY --from=builder /workdir/target/release/zola /usr/bin/zola
 WORKDIR /workdir
-
 USER 1000
-
 ENTRYPOINT [ "/usr/bin/zola" ]
 CMD ["--help"]

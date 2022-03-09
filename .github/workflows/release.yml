@@ -1,5 +1,12 @@
 name: Build and relese images
-on: [ push ]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+      - .github/workflows/release.yml
+
 env:
   BUILD_VERSION: "0.15.3"
   REPOSITORY: https://github.com/januson/docker-image-zola

@@ -1,16 +1,17 @@
-name: Build
+name: build
 on:
   push:
     branches:
       - main
     paths:
       - Dockerfile
+      - README.md
       - .github/workflows/release.yml
 
 env:
   BUILD_VERSION: "0.15.3"
-  REPOSITORY: https://github.com/januson/docker-image-zola
-  TITLE: januson/zola
+  GIT_REPO: https://github.com/januson/docker-image-zola
+  REPOSITORY: januson/zola
 
 jobs:
   release:
@@ -42,8 +43,8 @@ jobs:
             org.opencontainers.image.vendor="januson"
             org.opencontainers.image.licenses="MIT"
             org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.source="https://github.com/januson/docker-image-zola"
-            org.opencontainers.image.title=${{ env.TITLE }}
+            org.opencontainers.image.source=${{ env.GIT_REPO }}
+            org.opencontainers.image.title=${{ env.REPOSITORY }}
             org.opencontainers.image.version=${{ env.BUILD_VERSION }}
 
       - name: Build and push zola
@@ -54,7 +55,14 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ env.TITLE }}:${{ env.BUILD_VERSION }}
-            ${{ env.TITLE }}:latest
+            ${{ env.REPOSITORY }}:${{ env.BUILD_VERSION }}
+            ${{ env.REPOSITORY }}:latest
           build-args: |
             ZOLA_VERSION=${{ env.BUILD_VERSION }}
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+          repository: ${{ env.REPOSITORY }}

@@ -28,6 +28,7 @@ docker run --rm -v $(pwd):/workdir januson/zola build
 ### Git Bash
 
 If you are using git-bash on windows you have to add MSYS_NO_PATHCONV otherwise volume won't work.
+
 ```bash
 MSYS_NO_PATHCONV=1 docker run --rm -v $(pwd):/workdir januson/zola build
 ```

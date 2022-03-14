@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1
+        with:
+          egress-policy: audit
+
       - name: Source checkout
         uses: actions/checkout@v3
       - name: Setup QEMU

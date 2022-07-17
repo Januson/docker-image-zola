@@ -2,7 +2,7 @@ FROM rust:alpine AS builder
 
 WORKDIR /workdir
 
-ARG ZOLA_VERSION="0.15.3"
+ARG ZOLA_VERSION="0.16.0"
 ARG ARCHIVE_URL="https://github.com/getzola/zola/archive/refs/tags/v${ZOLA_VERSION}.tar.gz"
 
 RUN test -n "${ZOLA_VERSION}" \

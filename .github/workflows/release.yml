@@ -12,7 +12,7 @@ on:
     - cron: "0 8 * * 1"
 
 env:
-  BUILD_VERSION: "0.15.3"
+  BUILD_VERSION: "0.16.0"
   GIT_REPO: https://github.com/januson/docker-image-zola
   REPOSITORY: januson/zola
 

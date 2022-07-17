@@ -6,7 +6,7 @@
 [![Image Size](https://img.shields.io/docker/image-size/januson/zola/latest)](https://hub.docker.com/r/januson/zola/)
 
 Docker image providing [Zola](https://www.getzola.org/), the Rust-based
-static site generator. This image is using Zola version **0.15.3**, but it 
+static site generator. This image is using Zola version **0.16.0**, but it 
 will be updated with later releases.
 
 ## Installation

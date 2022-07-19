@@ -5,7 +5,6 @@ on:
       - master
     paths:
       - Dockerfile
-      - README.md
       - .github/workflows/release.yml
   workflow_dispatch:
   schedule:
@@ -79,10 +78,3 @@ jobs:
             ${{ env.REPOSITORY }}:latest
           build-args: |
             ZOLA_VERSION=${{ env.BUILD_VERSION }}
-
-      - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ env.REPOSITORY }}
